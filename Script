@@ -1,0 +1,72 @@
+const vehicleForm = document.getElementById('vehicleForm');
+const vehicleRecords = document.getElementById('vehicleRecords');
+
+vehicleForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const placa = document.getElementById('placa').value;
+  const marca = document.getElementById('marca').value;
+  const modelo = document.getElementById('modelo').value;
+  const cor = document.getElementById('cor').value;
+  const horaEntrada = document.getElementById('horaEntrada').value;
+
+  const vehicleDetails = {
+    placa,
+    marca,
+    modelo,
+    cor,
+    horaEntrada,
+    horaSaida: '',
+    valorEstacionamento: 0
+  };
+
+  addVehicleToRecords(vehicleDetails);
+  vehicleForm.reset();
+});
+
+function addVehicleToRecords(vehicle) {
+  const vehicleElement = document.createElement('div');
+  vehicleElement.classList.add('vehicle');
+
+  const vehicleInfo = `
+    <p><strong>Placa:</strong> ${vehicle.placa}</p>
+    <p><strong>Marca:</strong> ${vehicle.marca}</p>
+    <p><strong>Modelo:</strong> ${vehicle.modelo}</p>
+    <p><strong>Cor:</strong> ${vehicle.cor}</p>
+    <p><strong>Hora de Entrada:</strong> ${vehicle.horaEntrada}</p>
+  `;
+
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'Calcular e Remover';
+  removeButton.onclick = function() {
+    if (vehicle.horaSaida === '') {
+      const horaSaida = new Date().toLocaleTimeString();
+      vehicle.horaSaida = horaSaida;
+
+      const horaEntrada = new Date(`01/01/2023 ${vehicle.horaEntrada}`);
+      const horaSaidaCalculada = new Date(`01/01/2023 ${horaSaida}`);
+      const diffEmMilissegundos = horaSaidaCalculada - horaEntrada;
+      const diffEmHoras = diffEmMilissegundos / (1000 * 60 * 60);
+
+      vehicle.valorEstacionamento = 10 * diffEmHoras;
+
+      const valorPago = document.createElement('p');
+      valorPago.innerHTML = `<strong>Valor do Estacionamento:</strong> R$${vehicle.valorEstacionamento.toFixed(2)}`;
+
+      vehicleElement.appendChild(valorPago);
+
+      const removeVehicleButton = document.createElement('button');
+      removeVehicleButton.textContent = 'Remover';
+      removeVehicleButton.onclick = function() {
+        vehicleRecords.removeChild(vehicleElement);
+      };
+
+      vehicleElement.appendChild(removeVehicleButton);
+    }
+  };
+
+  vehicleElement.innerHTML = vehicleInfo;
+  vehicleElement.appendChild(removeButton);
+
+  vehicleRecords.appendChild(vehicleElement);
+}
