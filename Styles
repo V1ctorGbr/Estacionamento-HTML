@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#000000,#F5ECDA);
+    background-attachment: fixed;
+  }
+  
+  
+    .valor {
+      color: #090808;
+      margin-top: 0;
+      margin-left: 512px;
+      transform: translateY(100px);
+      font-size: 14px;
+    }
+    
+    
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(#760DCC,#DE62EA,#D840EB,#D118EB,#760DCC);
+    }
+    
+    .title {
+      text-align: center;
+      color: #090808;
+      margin-top: 0;
+    }
+    
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .input-field {
+      width: calc(100% - 10px);
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .submit-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    
+    .records {
+      margin-top: 20px;
+    }
+    
+    .vehicle {
+      background-color: #f8f8f8;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .vehicle p {
+      margin: 5px 0;
+    }
+    
+    .vehicle button {
+      padding: 8px 12px;
+      background-color: #ffffff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .vehicle button:hover {
+      background-color: #d32f2f;
+    }
+    
