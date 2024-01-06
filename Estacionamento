@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Estacionamento</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Cadastro do Veiculo</h1>
+        <form id="vehicleForm" action="form">
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" class="input-field"><br>
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" class="input-field"><br>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" class="input-field"><br>
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" class="input-field"><br>
+            <label for="horaEntrada">Hora de Entrada:</label>
+            <input type="text" id="horaEntrada" class="input-field"><br>
+            <input type="submit" value="Cadastro" class="submit-button">
+        </form>
+        <hr>
+        <h1 class="title">Registro dos Veículos</h1>
+        <div id="vehicleRecords"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
